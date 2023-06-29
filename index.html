@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>输入框demo</title>
+    <style>
+      .content1 {
+        width: 500px;
+        border: solid 1px red;
+      }
+      .content2 {
+        width: 800px;
+        border: solid 1px red;
+      }
+      .auto-input {
+        min-width: 100px;
+        /* max-width: 500px; 获取父元素的高度 */
+        display: inline-block;
+        font-size: 13px;
+        line-height: 20px;
+        text-align: left;
+        outline: none;
+        border: solid 1px blue;
+      }
+      .auto-input:empty::before {
+        content: attr(placeholder);
+        color: #999;
+      }
+      .auto-input:focus::before {
+        content: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>未禁用</h1>
+    <div class="content1">
+      <div class="auto-input" maxlength="11111111111111111" placeholder="可以输入的..."></div>
+    </div>
+    <h1>禁用</h1>
+    <div class="content2">
+      <div
+        class="auto-input"
+        value="初始值"
+        placeholder="这个是禁止输入的..."
+        disabled
+      ></div>
+    </div>
+  </body>
+  <script type="text/javascript" src="./index.js"></script>
+</html>
